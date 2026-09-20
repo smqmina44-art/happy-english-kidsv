@@ -29,7 +29,7 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install --no-frozen-lockfile
       - run: pnpm build:pages
       - uses: actions/upload-pages-artifact@v4
         with:
