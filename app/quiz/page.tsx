@@ -1,0 +1,5 @@
+"use client";
+import { useState } from "react";
+import { Ear, Eye, Shuffle } from "lucide-react";
+import { ChoiceGame, MatchGame } from "@/components/QuizCard";
+export default function QuizPage() { const [game, setGame] = useState<"listen"|"look"|"match">("listen"); return <main className="page-shell inner-page quiz-page"><div className="page-heading centered"><span>🎮 PLAY & LEARN</span><h1>Game Time!</h1><p>Choose a game and collect stars.</p></div><div className="game-tabs" role="tablist"><button role="tab" aria-selected={game === "listen"} className={game === "listen" ? "active" : ""} onClick={() => setGame("listen")}><Ear/>Listen</button><button role="tab" aria-selected={game === "look"} className={game === "look" ? "active" : ""} onClick={() => setGame("look")}><Eye/>Look</button><button role="tab" aria-selected={game === "match"} className={game === "match" ? "active" : ""} onClick={() => setGame("match")}><Shuffle/>Match</button></div>{game === "match" ? <MatchGame/> : <ChoiceGame mode={game}/>}</main>; }
